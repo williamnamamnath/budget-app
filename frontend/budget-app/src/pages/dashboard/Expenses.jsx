@@ -2,7 +2,7 @@ import React from 'react';
 
 const Expenses = () => {
   return (
-    <div>Expenses</div>
+    <div className='fw-bold fs-1'>My Expenses</div>
   );
 };
 

@@ -8,18 +8,19 @@ import Signup from './pages/authentication/Signup';
 import Home from './pages/dashboard/Home';
 import Income from './pages/dashboard/Income';
 import Expenses from './pages/dashboard/Expenses';
+import LandingPage from './pages/dashboard/LandingPage';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Root />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/home" exact element={<Home />} />
           <Route path="/income" exact element={<Income />} />
-          <Route path="/dashboard" exact element={<Expenses />} />
+          <Route path="/expenses" exact element={<Expenses />} />
         </Routes>
       </Router>
     </div>
@@ -27,14 +28,3 @@ function App() {
 };
 
 export default App;
-
-const Root = () => {
-  
-  const isAuthenticated = !!localStorage.getItem('token');
-
-  return isAuthenticated ? (
-    <Navigate to="/home" />
-  ) : (
-    <Navigate to="/login" />
-  )
-}
