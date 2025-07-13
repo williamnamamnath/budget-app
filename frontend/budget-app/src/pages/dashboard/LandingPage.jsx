@@ -1,5 +1,7 @@
 import React from 'react';
 
+//REMINDER: Add screenshots for each benefit when finalizing the project
+
 const LandingPage = () => {
   return (
     <>
@@ -24,13 +26,13 @@ const LandingPage = () => {
 <div class="mt-5 py-3 container text-center">
     <div class="row">
         <div class="col">
-        "Add benefits of the app"
+        Track your income and expenses, all in one location.
         </div>
         <div class="col">
-        "Add benefits of the app"
+        Enter your finances effortlessly and personalize them by classifying them into categories.
         </div>
         <div class="col">
-        "Add benefits of the app"
+        Budget and plan efficiently with the help of visual aids. 
         </div>
     </div>
 </div>
@@ -38,13 +40,13 @@ const LandingPage = () => {
 <div class="mt-5 py-3 container text-center">
     <div class="row">
         <div class="col">
-        "Add benefits of the app"
+        Obtain summaries of revenue(s) and expenditure(s) over a specific time period.
         </div>
         <div class="col">
-        "Add benefits of the app"
+        Manipulate data by exporting in a PDF or Excel file. 
         </div>
         <div class="col">
-        "Add benefits of the app"
+        All data and information is stored securely with the help of a verified database and a robust authentication system.
         </div>
     </div>
 </div>
