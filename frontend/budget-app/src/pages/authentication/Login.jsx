@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AuthenticationLayout from '../../components/layouts/AuthenticationLayout';
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 
 const Login = () => {
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const navigate = useNavigate();
+
+const handleLogin = (e) => {
+    e.preventDefault();
+    navigate('/home');
+  };
+
   return (
-    <>
+    <AuthenticationLayout>
 <Container fluid className="min-vh-100 d-flex justify-content-center align-items-center">
       <Row>
         <Col>
@@ -14,18 +26,18 @@ const Login = () => {
 
               <p className='my-5 fs-5 fw-bold text-center'>Log back in to continue where you left off.</p>
 
-              <Form>
+              <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-4" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </Form.Group>
 
                 <Form.Group className="mb-4" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} requireed />
                 </Form.Group>
 
-                <Button variant="success" type="submit" className="w-100 my-3">
+                <Button variant="success" type="submit" className="w-100 my-3" disabled={!email || !password}>
                   Sign In
                 </Button>
                 <a class="p-1 rounded" href="/signup">Don't have an account? Click here to sign up</a>
@@ -35,7 +47,7 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
-    </>
+    </AuthenticationLayout>
   );
 };
 
