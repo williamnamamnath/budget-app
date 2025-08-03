@@ -1,21 +1,32 @@
-require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const connectDB = require('./config/db');
+const morgan = require('morgan');
+
+const { newUser, loginUser, getUserInfo } = require('./handlers');
 
 const app = express();
 
-app.use(cors({
-    origin: process.env.CLIENT_URL || "*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-})
-);
+app.use(function (req, res, next) {
+    res.header(
+      'Access-Control-Allow-Methods',
+      'OPTIONS, HEAD, GET, PUT, POST, DELETE'
+    );
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+  })
 
+app.use(morgan('tiny'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/', express.static(__dirname + '/'));
 
-connectDB();
+
+// Server endpoints
+app.post('/register', newUser);
+app.post('/login', loginUser);
+app.get('/user/:_id', getUserInfo);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
