@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const { newUser, loginUser, getUserInfo } = require('./handlers');
+const { newUser, loginUser, getUserInfo, getUsersInfo } = require('./handlers');
 
 const app = express();
 
@@ -27,6 +27,7 @@ app.use('/', express.static(__dirname + '/'));
 app.post('/register', newUser);
 app.post('/login', loginUser);
 app.get('/user/:_id', getUserInfo);
+app.get('/users', getUsersInfo);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
