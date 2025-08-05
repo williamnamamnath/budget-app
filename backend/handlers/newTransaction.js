@@ -13,16 +13,17 @@ const createOrderHandler = async (req, res) => {
         
         const db = client.db(dbName);
         const allTransactions = db.collection('transactions');
-        const { typeOfTransaction, amount, description } = req.body;
+        const { typeOfTransaction, amount, description, date } = req.body;
 
+        // To insert date function to know when each transaction was entered/created
         const newTransaction = {
             _id: uuidv4(),
             typeOfTransaction,
             amount,
-            description
+            description,
+            date
         };
 
-        // Insert order in the database
         const result = await allTransactions.insertOne(newTransaction);
         if (!result || !result.insertedId) {
             return res.status(500).json({

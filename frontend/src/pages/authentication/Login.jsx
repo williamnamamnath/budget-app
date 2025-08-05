@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AuthenticationLayout from '../../components/layouts/AuthenticationLayout';
 import { useNavigate } from 'react-router-dom';
 
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
@@ -16,7 +15,6 @@ const handleLogin = (e) => {
   };
 
   return (
-    <AuthenticationLayout>
 <Container fluid className="min-vh-100 d-flex justify-content-center align-items-center">
       <Row>
         <Col>
@@ -47,7 +45,6 @@ const handleLogin = (e) => {
         </Col>
       </Row>
     </Container>
-    </AuthenticationLayout>
   );
 };
 
