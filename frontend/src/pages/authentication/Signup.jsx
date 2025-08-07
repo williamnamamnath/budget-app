@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import AuthenticationLayout from '../../components/layouts/AuthenticationLayout';
-import ProfilePicture from '../../components/inputs/ProfilePicture';
+// import ProfilePicture from '../../components/inputs/ProfilePicture';
 
 const Signup = () => {
 
@@ -30,7 +29,6 @@ const handleSignup = (e) => {
 const missingInfo = !fName || !lName || !email || !password || !confirmPwd;
 
   return (
-    <AuthenticationLayout>
     <Container fluid className="min-vh-100 d-flex justify-content-center align-items-center">
       <Row>
         <Col>
@@ -81,7 +79,6 @@ const missingInfo = !fName || !lName || !email || !password || !confirmPwd;
         </Col>
       </Row>
     </Container>
-    </AuthenticationLayout>
   );
 };
 
