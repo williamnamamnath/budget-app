@@ -2,7 +2,7 @@ const Footer = () => {
 
     return (
         <>
-    <footer className="mt-auto" style={{ backgroundColor: "#76C893" }}>
+    <footer className="mt-auto py-3" style={{ backgroundColor: "#76C893" }}>
 
   <div className="container py-3">
     <div className="row justify-content-center">

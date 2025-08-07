@@ -29,7 +29,7 @@ const handleSignup = (e) => {
 const missingInfo = !fName || !lName || !email || !password || !confirmPwd;
 
   return (
-    <Container fluid className="min-vh-100 d-flex justify-content-center align-items-center">
+    <Container fluid className="my-3 min-vh-100 d-flex justify-content-center align-items-center">
       <Row>
         <Col>
           <Card className="p-4 shadow-lg">
